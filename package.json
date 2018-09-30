@@ -4,7 +4,9 @@
   "description": "Example of cypress with cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --spec cypress/integration/*.feature"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,7 @@
   },
   "homepage": "https://github.com/TheBrainFamily/cypress-cucumber-example#readme",
   "dependencies": {
-    "cypress": "^2.0.1",
+    "cypress": "^3.1.0",
     "cypress-cucumber-preprocessor": "0.2.0"
   }
 }
