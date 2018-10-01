@@ -1,13 +1,20 @@
-const data = require("./data.json");
+import inputData from "./input.data";
+import outputData from "./output.data";
 
-given(`I open {string} page`, fieldName => {
-  cy.visit(data[fieldName]);
+given(`I open {string} page`, url => {
+  cy.visit(inputData[url]);
 });
 
-/* global cy then */
-// we decided to not use this pattern anymore since for some reason it messes up the watcher functionality on linux
-// const {then} = require('cypress-cucumber-preprocessor')
+when(`I type {string} into search box`, searchInput => {
+  cy.get("#lst-ib").type(inputData[searchInput]);
+});
 
-then(`I see {string} in the title`, title => {
-  cy.title().should("include", data[title]);
+when(`I click the search button`, () => {
+  cy.get('input[value="Google Search"]').click();
+});
+
+then(`I can see {string} in the seach output`, keyword => {
+  cy.document()
+    .its("body")
+    .contains(outputData[keyword]);
 });

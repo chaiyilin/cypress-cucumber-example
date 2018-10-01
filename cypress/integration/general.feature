@@ -2,4 +2,6 @@ Feature: access website
 
   Scenario: Opening a website page
     Given I open "url" page
-    Then I see "title" in the title
+    When I type "searchInput" into search box
+    And I click the search button
+    Then I can see "searchOutput" in the seach output

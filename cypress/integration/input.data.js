@@ -1,6 +1,4 @@
-
-module.exports.data=
-{
+export default {
   url: "https://google.com",
   searchInput: "hello"
-}
+};
